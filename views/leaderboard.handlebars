@@ -1,0 +1,69 @@
+<div class="tableAreaLeaderboard">
+    <table style="width:65%; margin-left: auto; margin-right: auto">
+        <tr style="text-decoration: underline">
+            <th>Name</th>
+            <th>Category</th>
+            <th>Points</th>
+        </tr>
+
+        {{#each leaderboard}}
+        <tr style="border-bottom: 1pt solid black">
+            <td>{{contestant_name}}</td>
+            <td>{{category_name}}</td>
+            <td>{{earnings}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+
+<br>
+<br>
+<div class="categoryButton">
+    <h4 style="text-align: center">
+        <strong>Select Leaderboard</strong>
+    </h4>
+    <div class="input-field col s12" style="text-align: center;">
+        <select name="menu" onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO" class="chosen-select"
+            id="categoryselect" style="width: 155px">
+            <option value="">Select a Category</option>
+            <option value="/api/leaderboard">All</option>
+            <option value="/api/leaderboard/american history">American History</option>
+            <option value="/api/leaderboard/magazines">Magazines</option>
+            <option value="/api/leaderboard/art">Art</option>
+            <option value="/api/leaderboard/sports">Sports</option>
+            <option value="/api/leaderboard/in the news">In the News</option>
+            <option value="/api/leaderboard/movies">Movies</option>
+            <option value="/api/leaderboard/music">Music</option>
+            <option value="/api/leaderboard/food & drink">Food and Drink</option>
+            <option value="/api/leaderboard/science & nature">Science and Nature</option>
+            <option value="/api/leaderboard/state capitals">State Capitals</option>
+            <option value="/api/leaderboard/animals">Animals</option>
+            <option value="/api/leaderboard/the human body">The Human Body</option>
+        </select>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    // Chosen CSS
+    var config = {
+        ".chosen-select": {},
+        ".chosen-select-deselect": {
+            allow_single_deselect: false
+        },
+        ".chosen-select-no-single": {
+            disable_search_threshold: 10
+        },
+        ".chosen-select-no-results": {
+            no_results_text: "Oops, nothing found!"
+        },
+        ".chosen-select-width": {
+            width: "95%"
+        }
+    };
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+
+</script>
